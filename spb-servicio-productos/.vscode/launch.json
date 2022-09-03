@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SpbServicioProductosApplication<spb-servicio-productos>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.spb.app.productos.SpbServicioProductosApplication",
+      "projectName": "spb-servicio-productos",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

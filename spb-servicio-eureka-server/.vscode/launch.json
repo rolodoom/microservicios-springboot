@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SpbServicioEurekaServerApplication<spb-servicio-eureka-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.spb.app.eureka.SpbServicioEurekaServerApplication",
+      "projectName": "spb-servicio-eureka-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
