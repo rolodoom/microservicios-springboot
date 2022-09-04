@@ -1,5 +1,7 @@
 package com.spb.app.gateway.filters.factory;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -37,9 +39,19 @@ public class EjemploGatewayFilterFactory
                             .addCookie(
                                     ResponseCookie.from(config.cookieNombre, cookie).build());
                 });
-                logger.info("Ejecutando POST Gateway filter Factory" + config.mensaje);
+                logger.info("Ejecutando POST Gateway filter Factory: " + config.mensaje);
             }));
         };
+    }
+
+    @Override
+    public String name() {
+        return "EjemploCookie";
+    }
+
+    @Override
+    public List<String> shortcutFieldOrder() {
+        return Arrays.asList("mensaje", "cookieNombre", "cookieValor");
     }
 
     public static class Configuracion {
