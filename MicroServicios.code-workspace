@@ -1,18 +1,18 @@
 {
   "folders": [
-    {
-      "path": "spb-servicio-eureka-server"
-    },
-    {
-      "path": "spb-servicio-item"
-    },
-    {
-      "path": "spb-servicio-productos"
-    },
-    {
-      "path": "spb-servicios-gateway-server"
-    }
-  ],
+	{
+		"path": "spb-servicio-eureka-server"
+	},
+	{
+		"path": "spb-servicio-item"
+	},
+	{
+		"path": "spb-servicio-productos"
+	},
+	{
+		"path": "spb-servicios-gateway-server"
+	}
+],
   "settings": {
     "java.configuration.updateBuildConfiguration": "interactive"
   }
