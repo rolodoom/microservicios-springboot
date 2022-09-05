@@ -17,7 +17,7 @@ resilience4j:
         # Slow Call
         # timeout-duration: 6s
         # Time Out
-        timeout-duration: 6s
+        timeout-duration: 2s
     instances:
       items:
         base-config: defecto
