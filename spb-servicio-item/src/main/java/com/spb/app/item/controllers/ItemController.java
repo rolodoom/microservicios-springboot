@@ -17,6 +17,8 @@ import com.spb.app.item.models.Item;
 import com.spb.app.item.models.Producto;
 import com.spb.app.item.models.service.ItemService;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @RestController
 public class ItemController {
 
@@ -38,13 +40,19 @@ public class ItemController {
         return itemService.findAll();
     }
 
+    // @GetMapping("/ver/{id}/cantidad/{cantidad}")
+    // public Item ver(@PathVariable Long id, @PathVariable Integer cantidad) {
+    // // return itemService.findById(id, cantidad)
+    // return cbFactory.create("items")
+    // .run(
+    // () -> itemService.findById(id, cantidad),
+    // e -> metodoAlternativo(id, cantidad, e));
+    // }
+
+    @CircuitBreaker(name = "items", fallbackMethod = "metodoAlternativo")
     @GetMapping("/ver/{id}/cantidad/{cantidad}")
     public Item ver(@PathVariable Long id, @PathVariable Integer cantidad) {
-        // return itemService.findById(id, cantidad)
-        return cbFactory.create("items")
-                .run(
-                        () -> itemService.findById(id, cantidad),
-                        e -> metodoAlternativo(id, cantidad, e));
+        return itemService.findById(id, cantidad);
     }
 
     public Item metodoAlternativo(Long id, Integer cantidad, Throwable e) {
