@@ -37,7 +37,7 @@ public class ProductoController {
             throw new IllegalStateException("Producto no encontrado!");
         }
         if (id.equals(7L)) {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5L);
         }
 
         Producto producto = productoService.findById(id);
