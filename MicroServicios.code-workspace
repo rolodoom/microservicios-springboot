@@ -11,6 +11,10 @@
     },
     {
       "path": "spb-servicio-item"
+    },
+    {
+      "name": "spb-servicio-config-server",
+      "path": "spb-servicio-config-server"
     }
   ],
   "settings": {
