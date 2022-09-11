@@ -248,7 +248,7 @@ buildNumber.properties
 .vscode/*.code-snippets
 
 # Ignore code-workspaces
-*.code-workspace
+!*.code-workspace
 
 ### Gradle ###
 .gradle
