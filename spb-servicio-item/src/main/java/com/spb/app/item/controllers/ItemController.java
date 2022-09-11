@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,9 @@ import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 public class ItemController {
 
     static final Logger logger = LoggerFactory.getLogger(ItemController.class);
+
+    @Autowired
+    private Environment env;
 
     @Value("${configuration.text}")
     private String texto;
@@ -107,6 +111,12 @@ public class ItemController {
         Map<String, String> json = new HashMap<>();
         json.put("texto", texto);
         json.put("puerto", puerto);
+
+        // Development environment
+        if (env.getActiveProfiles().length > 0 && env.getActiveProfiles()[0].equals("dev")) {
+            json.put("author.name", env.getProperty("configuration.author.name"));
+            json.put("author.email", env.getProperty("configuration.author.email"));
+        }
 
         return new ResponseEntity<Map<String, String>>(json, HttpStatus.OK);
     }
