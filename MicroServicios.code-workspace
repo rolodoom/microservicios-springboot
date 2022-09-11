@@ -17,6 +17,10 @@
     },
     {
       "path": "spb-servicio-usuarios"
+    },
+    {
+      "name": "spb-servicio-commons",
+      "path": "spb-servicio-commons"
     }
   ],
   "settings": {
