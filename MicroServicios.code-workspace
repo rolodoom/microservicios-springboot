@@ -18,6 +18,10 @@
     },
     {
       "path": "../microservicios-springboot-config"
+    },
+    {
+      "name": "spb-servicio-commons",
+      "path": "spb-servicio-commons"
     }
   ],
   "settings": {
