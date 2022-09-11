@@ -17,7 +17,7 @@
       "path": "spb-servicio-config-server"
     },
     {
-      "path": "../microservicios-springboot-config "
+      "path": "../microservicios-springboot-config"
     }
   ],
   "settings": {
