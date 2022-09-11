@@ -22,8 +22,6 @@ resilience4j:
       productos:
         base-config: defecto
 
-
-
 spring:
   cloud:
     gateway:
@@ -39,7 +37,7 @@ spring:
             # - Cookie=color, azul
           filters:
             - name: CircuitBreaker
-              args: 
+              args:
                 name: productos
                 statusCodes: 500
                 fallbackUri: forward:/api/items/ver/9/cantidad/5
@@ -60,3 +58,9 @@ spring:
             - AddResponseHeader=token-response, 12345678
             # - SetResponseHeader=Content-Type, text/plain
             - AddRequestParameter=nombre, rolando
+        - id: servicio-usuarios
+          uri: lb://servicio-usuarios
+          predicates:
+            - Path=/api/usuarios/**
+          filters:
+            - StripPrefix=2
