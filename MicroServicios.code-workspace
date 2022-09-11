@@ -18,5 +18,8 @@
     {
       "path": "spb-servicio-usuarios"
     }
-  ]
+  ],
+  "settings": {
+    "java.configuration.updateBuildConfiguration": "interactive"
+  }
 }
