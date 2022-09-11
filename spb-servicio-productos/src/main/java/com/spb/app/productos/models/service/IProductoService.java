@@ -6,8 +6,20 @@ import com.spb.app.productos.models.entity.Producto;
 
 public interface IProductoService {
 
+    // CRUD
+    // Create and Update
+    // - NO ID -> save
+    // - WITH ID -> edit
+    public Producto save(Producto producto);
+
+    // Read
+    // - Read
+    public Producto findById(Long Id);
+
+    // - List all
     public List<Producto> findAll();
 
-    public Producto findById(Long Id);
+    // Delete
+    public void deleteById(Long id);
 
 }
