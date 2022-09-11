@@ -15,6 +15,9 @@
     {
       "name": "spb-servicio-config-server",
       "path": "spb-servicio-config-server"
+    },
+    {
+      "path": "../config"
     }
   ],
   "settings": {
