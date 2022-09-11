@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.spb.app.item.clientes.ProductoClienteRest;
 import com.spb.app.item.models.Item;
+import com.spb.app.item.models.Producto;
 
 @Service("serviceFeign")
 public class ItemServiceFeign implements ItemService {
@@ -23,6 +24,24 @@ public class ItemServiceFeign implements ItemService {
     @Override
     public Item findById(Long id, Integer cantidad) {
         return new Item(clienteFeign.ver(id), cantidad);
+    }
+
+    @Override
+    public Producto save(Producto producto) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Producto update(Producto producto, Long id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+        // TODO Auto-generated method stub
+
     }
 
 }
