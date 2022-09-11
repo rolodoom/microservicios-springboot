@@ -2,7 +2,7 @@ package com.spb.app.productos.models.service;
 
 import java.util.List;
 
-import com.spb.app.productos.models.entity.Producto;
+import com.spb.app.commons.models.entity.Producto;
 
 public interface IProductoService {
 
