@@ -1,4 +1,4 @@
-package com.spb.app.usuarios.models.entity;
+package com.spb.app.commons.usuarios.models.entity;
 
 import java.io.Serializable;
 
