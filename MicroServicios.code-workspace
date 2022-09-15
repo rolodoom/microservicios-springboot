@@ -24,9 +24,13 @@
     },
     {
       "path": "spb-servicio-usuarios-commons"
+    },
+    {
+      "name": "spb-servicio-oauth",
+      "path": "spb-servicio-oauth"
     }
   ],
   "settings": {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "automatic"
   }
 }
