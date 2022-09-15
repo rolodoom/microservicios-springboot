@@ -24,10 +24,6 @@
     },
     {
       "path": "spb-servicio-usuarios-commons"
-    },
-    {
-      "name": "spb-servicio-oauth",
-      "path": "spb-servicio-oauth"
     }
   ],
   "settings": {
