@@ -46,7 +46,7 @@ public class ItemController {
     private String texto;
 
     @Autowired
-    private CircuitBreakerFactory cbFactory;
+    private CircuitBreakerFactory<?, ?> cbFactory;
 
     @Autowired
     @Qualifier("serviceFeign")
