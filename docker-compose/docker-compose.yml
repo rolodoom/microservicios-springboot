@@ -1,0 +1,90 @@
+version: "3.8"
+
+services:
+  config-server:
+    container_name: spb-config-server
+    image: spb-config-server:v1
+    ports:
+      - "8888:8888"
+    # restart: always
+    networks:
+      - spb-cloud
+
+  servicio-eureka-server:
+    container_name: spb-servicio-eureka-server
+    image: spb-servicio-eureka-server:v1
+    ports:
+      - "8761:8761"
+    # restart: always
+    networks:
+      - spb-cloud
+
+  servicio-productos:
+    depends_on:
+      - config-server
+      - servicio-eureka-server
+      - mysql8
+    container_name: spb-servicio-productos
+    image: spb-servicio-productos:v1
+    # restart: always
+    networks:
+      - spb-cloud
+
+  servicio-item:
+    depends_on:
+      - config-server
+      - servicio-eureka-server
+      - servicio-productos
+    container_name: spb-servicio-item
+    image: spb-servicio-item:v1
+    ports:
+      - "8002:8002"
+      - "8005:8005"
+      - "8007:8007"
+    # restart: always
+    networks:
+      - spb-cloud
+
+  servicio-gateway-server:
+    depends_on:
+      - config-server
+      - servicio-eureka-server
+      - servicio-productos
+      - servicio-item
+    container_name: spb-servicio-gateway-server
+    image: spb-servicio-gateway-server:v1
+    ports:
+      - "8090:8090"
+    # restart: always
+    networks:
+      - spb-cloud
+
+  mysql8:
+    container_name: spb-cloud-mysql8
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: 4dm1n2022
+      MYSQL_DATABASE: db_spb_cloud
+    volumes:
+      - $PWD/database/mysql/:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - spb-cloud
+
+  postgresql:
+    image: postgres
+    container_name: spb-cloud-postgresql
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 4dm1n2022
+      POSTGRES_DB: db_spb_cloud
+    volumes:
+      - $PWD/database/postgresql/:/var/lib/postgresql/data
+    networks:
+      - spb-cloud
+
+networks:
+  spb-cloud:
